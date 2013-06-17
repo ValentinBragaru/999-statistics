@@ -19,7 +19,7 @@ myApp.config(function ($routeProvider){
 
 //itemsFactory
 myApp.factory('itemsFactory', function($http) {
-   return{
+ return{
     getItems : function(categoryUrl) {
         return $http({
             url: 'http://999.md/backend/search/category?query=&page=1&per_page=100&category_url='+categoryUrl,
@@ -36,7 +36,7 @@ myApp.factory('itemsFactory', function($http) {
 });
 // itemInfoFactory
 myApp.factory('itemInfoFactory', function($http) {
-   return{
+ return{
     getItemInfo : function(itemId) {
         return $http({
             url: 'http://999.md/backend/view/ad?id='+itemId,
@@ -45,7 +45,7 @@ myApp.factory('itemInfoFactory', function($http) {
     }
 }
 });
-
+//HomeController
 myApp.controller("HomeController", function($scope, $location, $http) {
     $scope.categoryurl="transport%2Fcars";
 
@@ -53,7 +53,7 @@ myApp.controller("HomeController", function($scope, $location, $http) {
         $location.path('/itemslist/'+$scope.categoryurl);
     }
 });
-
+//ItemsController
 myApp.controller("ItemsController", function($scope,$routeParams, $location, $http, itemsFactory) {
     var categoryUrl = ($routeParams.categoryurl || "transport%2Fcars");
     $scope.items = [];
@@ -80,7 +80,7 @@ myApp.controller("ItemsController", function($scope,$routeParams, $location, $ht
   }
 
 });
-
+//ItemInfoController
 myApp.controller("ItemInfoController", function($scope,$routeParams,$location, $http, itemInfoFactory) {
     var itemId = ($routeParams.itemid || "");
     $scope.itemInfo = [];
