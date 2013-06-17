@@ -1,0 +1,20 @@
+﻿{
+	"name": "999 Parser",
+	"description": "Parse 999 site and make reports.",
+	"app": {
+		"launch": {
+			"local_path": "page.html"}
+			},
+			"web_accessible_resources" :[
+			"view1.html","view2.html","itemsInfo.html","itemsList.html"
+			],
+			"version": "1.0",
+			"manifest_version": 2,
+			"icons": {
+				"16": "img/999_16.png",
+				"128": "img/999_128.png"
+				},
+				"permissions": ["idle",
+				"tabs", "http://999.md/*/*"
+				]
+			}
