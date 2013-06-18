@@ -1,0 +1,17 @@
+ <div>
+ 	<h2>Categories</h2>
+ 	<ul>
+ 		<div ng-repeat="column in categories.result.columns">
+ 			<div ng-repeat="child in column.children">
+ 				<li>{{child.title}}</li>
+ 				
+ 				<ul>
+ 					<li ng-repeat="chd in child.children">
+ 						<a href="#/itemslist/{{chd.url}}">{{chd.title}}</a>
+ 						<!--a href="#/itemslist/transport%2Fcars">{{chd.title}}</a-->
+ 					</li>
+ 				</ul>
+ 			</div>
+ 		</div>
+ 	</ul>
+ </div>
