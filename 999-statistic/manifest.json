@@ -6,9 +6,6 @@
 			"local_path": "index.html"
 		}
 		},
-		"web_accessible_resources" :[
-		"pages/view1.html","pages/view2.html","pages/itemsInfo.html","pages/itemsList.html"
-		],
 		"version": "1.0",
 		"manifest_version": 2,
 		"icons": {
