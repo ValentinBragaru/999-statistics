@@ -4,11 +4,10 @@
  		<div ng-repeat="column in categories.result.columns">
  			<div ng-repeat="child in column.children">
  				<li>{{child.title}}</li>
- 				
  				<ul>
  					<li ng-repeat="chd in child.children">
- 						<a href="#/itemslist/{{chd.url}}">{{chd.title}}</a>
- 						<!--a href="#/itemslist/transport%2Fcars">{{chd.title}}</a-->
+ 						<div ng-repeat="count in counters | filter:{id:chd.id}">
+ 							<a href="#/itemslist/{{chd.url}}">{{chd.title}}</a> : {{count.count}}</div> 
  					</li>
  				</ul>
  			</div>

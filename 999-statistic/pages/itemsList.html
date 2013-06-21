@@ -3,27 +3,43 @@
  	<table class="table table-striped">
  		<tr>
  			<th>Title</th>
+ 			<th>Img</th>
  			<th>Date</th>
- 			<th>Id</th>
- 			<th>Views</th>
+ 			<th><a href="" ng-click="predicate='id'; reverse=!reverse">Id</a></th>
+ 			<th><a href="" ng-click="predicate='info.views'; reverse=!reverse">Views</a></th>
  			<th>Type</th>
  		</tr>
- 		<tr ng-repeat="item in items.result.ads">
+ 		<tr ng-repeat="item in items.result.ads  | orderBy:predicate:reverse">
  			<td>
  				<div>{{item.title}}</div>
  			</td> 
+ 			
+ 			<td>
+ 				<!--div ng-repeat="img in item.features.14.value"><img width="50" height="50" src="http://i.simpalsmedia.com/999.md/BoardImages/160x120/{{img}}"></div-->
+
+ 				<div><img width="50" height="50" src="http://i.simpalsmedia.com/999.md/BoardImages/160x120/{{item.features.14.value[0]}}"></div>
+ 			</td>
  			<td>
  				<div>{{item.date | date:'dd/MM/yyyy HH:mm'}}</div>
  			</td>
  			<td>
  				<div><a href="#/iteminfo/{{item.id}}">{{item.id}}</a></div>
  			</td>
- 			<!--td>
+ 			<td>
  				<div>{{item.info.views}}</div>
  			</td> 
  			<td>
  				<div>{{item.info.ad.features.1.value}}</div>
- 			</td-->
+ 			</td>
  		</tr>
  	</table>
- </div-->
+ 	<div>    
+ 		<button class="btn btn-primary" ng-disabled="currentPage == 1" ng-click="previousPage()">
+ 			Previous
+ 		</button>
+ 		{{currentPage}}/{{numberOfPages()}}
+ 		<button class="btn btn-primary" ng-disabled="currentPage >= 5" ng-click="nextPage()">
+ 			Next
+ 		</button>
+ 	</div>
+ </div>

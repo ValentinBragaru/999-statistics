@@ -2,9 +2,9 @@
 //itemsFactory
 myApp.factory('itemsFactory', function($http) {
  return{
-    getItems : function(categoryUrl) {
+    getItems : function(categoryUrl,page) {
         return $http({
-            url: 'http://999.md/backend/search/category?page=1&per_page=100&category_url='+categoryUrl,
+            url: 'http://999.md/backend/search/category?page='+page+'&per_page=100&category_url='+categoryUrl,
             method: 'GET'
         })
     },
@@ -46,6 +46,12 @@ myApp.factory('catBrowseFactory', function($http) {
     getChildren : function(parentUrl) {
         return $http({
             url: 'http://999.md/backend/categories/children?category_url='+parentUrl,
+            method: 'GET'
+        })
+    },
+    getCounters : function(parentUrl) {
+        return $http({
+            url: 'http://999.md/backend/counters/category?category_url='+parentUrl,
             method: 'GET'
         })
     }
